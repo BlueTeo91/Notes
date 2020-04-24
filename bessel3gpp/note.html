@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>BESSEL 3GPP</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="bessel-3gpp">BESSEL 3GPP</h1>
+<ul>
+<li>Bessel equation in SATSOFT documentation is directly dependent from <strong>u-v</strong> coordinates (see eq 6.4 SATSOFT).</li>
+<li>Bessel equation used in 3GPP depends on the value of <strong>theta</strong> from each beam center:
+<ul>
+<li>it is not possible to compute this theta directly from the differential values of u and v (v-v0, u-u0) because the same distance in uv corresponds to a different theta value according to the u0,v0 (beam centers) values and from the boresight position.</li>
+<li>then we use a d_theta, computed with the specific function or using ECEF coordinates of beam centers, boresight (at SSP) and UTs.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="problem-in-3gpp-documentation">Problem in 3GPP Documentation</h2>
+<ul>
+<li>Bessel equation in TR38.811 from 3GPP is defined in theta, such to have a perfect circle at -3 dB in theta-phi coordinates (sphere)</li>
+<li><strong>But a circle in theta-phi is not a circle in u-v (projection) and viceversa</strong>, as it is visible in Figures 3 and 4.</li>
+<li>This produce a distortion of the beams in u-v plane (this phenomena is more visible far from the boresight of the antenna).</li>
+<li>Then the beam will not be circle in u-v (as intended in 3GPP documentation) but rather ovals.</li>
+<li>Basically 3GPP documentation put together 2 different concept:
+<ol>
+<li>want to achieve regular circular (-3 dB) beam coverage in u-v plane</li>
+<li>but gives the reference equations for a regular coverage in theta-phi</li>
+<li>GG [cit. A.M.]</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://gitlab.com/BlueTeo91/notes/master/bessel3gpp/ref_sys_uv_thetaphi.jpeg" alt=""> <br>
+<img src="https://github.com/BlueTeo91/WSN_Project/blob/master/homer.jpeg?raw=true" alt=""></p>
+
+    </body>
+    </html>

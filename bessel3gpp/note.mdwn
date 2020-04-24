@@ -1,0 +1,23 @@
+# BESSEL 3GPP
+
+- Bessel equation in SATSOFT documentation is directly dependent from **u-v** coordinates (see eq 6.4 SATSOFT).
+- Bessel equation used in 3GPP depends on the value of **theta** from each beam center:
+    - it is not possible to compute this theta directly from the differential values of u and v (v-v0, u-u0) because the same distance in uv corresponds to a different theta value according to the u0,v0 (beam centers) values and from the boresight position.
+    - then we use a d_theta, computed with the specific function or using ECEF coordinates of beam centers, boresight (at SSP) and UTs.
+
+***
+
+## Problem in 3GPP Documentation
+
+- Bessel equation in TR38.811 from 3GPP is defined in theta, such to have a perfect circle at -3 dB in theta-phi coordinates (sphere)
+- **But a circle in theta-phi is not a circle in u-v (projection) and viceversa**, as it is visible in Figures 3 and 4. 
+- This produce a distortion of the beams in u-v plane (this phenomena is more visible far from the boresight of the antenna).
+- Then the beam will not be circle in u-v (as intended in 3GPP documentation) but rather ovals.
+- Basically 3GPP documentation put together 2 different concept:
+  1. want to achieve regular circular (-3 dB) beam coverage in u-v plane
+  2. but gives the reference equations for a regular coverage in theta-phi
+  3. GG [cit. A.M.]
+
+![](https://gitlab.com/BlueTeo91/notes/-/blob/master/bessel3gpp/ref_sys_uv_thetaphi.jpeg) \
+![](https://gitlab.com/BlueTeo91/notes/-/blob/master/bessel3gpp/circle.jpeg)
+
