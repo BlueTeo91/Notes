@@ -1,0 +1,95 @@
+# MARTIAN Telco_9 (24/04/2020)
+
+## Partecipants    
+- **UNIBO**
+  - A. Vanelli-Coralli
+  - A. Guidotti
+  - M. Conti
+  - C. Amatetti
+- **DLR**
+  - Sandro Scalise
+  - Tomaso De Cola
+  - Andrea Munari 
+- **I2Cat**
+  - Pouria Khodashensa
+- **VTT**
+  - Mika Lasanen
+  - Marko Hoyhtya
+- **Gilat**
+  - Avi Gal
+- **JOR**
+  - Michael Schmidt
+- **CTTC**
+  - Musbah Shaat
+- **TAS**
+  - Remi Challamel
+- **Martel**
+  - M.C. Campodonico
+- **Sateliot**
+  - Marco Guadalupi
+  - Ramon Ferrus
+- **Inmarsat**
+  - Mihaly Varga
+- **Fairspectrum**
+  - Heikki Kokkinen
+- **ASOCS**
+  - Doron Solomon
+- **Telefonica**
+  - Luis Miguel Contreras Murillo
+  - Rafael Canto Palancar
+  - Eduardo Yusta Padilla
+
+***
+## Minutes
+- **Ramon Ferrus:**
+  - In the proposal the text under the 1st challenge was moved such to make **coverage extension** as one of the pillars of the project (main goals).
+  - Add elements to this challenge, further elaboration; rethink coverage extension adding other elements (seamless experience...)
+  - provide a comprehensive analysis for each focus area
+    - technology gap
+    - requirements 
+    - such to provide an analysis for future proof system
+  - about WP7
+    - not to demonstrate specific work cases
+    - demonstrate specific technologies which fit well in one or several of the use cases
+    - but it's not necessary to demonstrate everything, just take a set of demonstration cases
+  
+### WP2
+**Mihaly Varga**
+- about WP2: 1 and 2 focus area seem to be technology enabler so we need to use those as enablers for the rest of focus areas
+
+**Avi Gal**
+- Focus on further/overall requirements to access anywhere/anytime... \
+    take into account service providing...
+
+### WP3
+**Remi Challamel**
+- could be interesting to define what we call NTN, in order to have the right understanding what components fall under this umbrella.
+
+**Doron Solomon**
+- if Martian can address Industry 4.0 it would be of great interest. \
+    This should be part of the use cases. \
+    This use case fall in mMTC scenario.
+- **Pouria Khodashensa:** think it's an added value. There are factories pushing for this concept. Probably pushing to be provider of their own private networks (**neutral hosting**)
+- **ASOCS:** favorable too for neutral hosting
+
+### WP5
+**Marko Hoyhtya**
+- T5.3: should we cover this specific task separately as it is?
+  - **Doron Solomon:** can T5.3 can be combined with T5.4?
+  - **Pouria Khodashensa:** it makes sense to have a separate task only if we have specific actions/demonstration to accomplish, otherwise it makes sense to merge it with T5.3 (**Marko Hoyhtya** agree)
+
+### WP7
+**Ramon Ferrus**
+- Try to identify what are the demonstrations that can be included in WP7 (for all the partners). Then define a more complete description for WP7
+
+***
+
+### Final Remarks
+- Better division of enablers and verticals is needed
+
+***
+
+### Next Telco
+- WP leaders: Provide objectives and KPIs for 
+- all partners: provide SOA and progress beyond SOA 
+- Vanelli will circulate a table with WP and tasks, partners must fill it with men/project. By 29th april to an estimate of the overall budget (< 7M €).
