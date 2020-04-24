@@ -1,8 +1,8 @@
-# MATLAB - Notes Repository
+# Notes Repository
 
 Hi everybody! Remember a few simple rules for using the repository:
 
-1) MINIGUIDE TO GITHUB (http://rogerdudler.github.io/git-guide/):
+1) MINIGUIDE TO GIT (http://rogerdudler.github.io/git-guide/):
 
 - Every time you open repository in local:
 
@@ -16,9 +16,9 @@ Hi everybody! Remember a few simple rules for using the repository:
 
   git push origin master
 
-2 ) ALWAYS!!! comment the code
+2) ALWAYS!!! comment the code
 
-3 ) if you do not know how to use GitHub read the Wiki, or ask XD
+3) if you do not know how to use GitHub read the Wiki, or ask XD
 
 
 ![DOH](./homer.jpeg)
