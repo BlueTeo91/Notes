@@ -1,9 +1,9 @@
 # Notes Repository
 
-### MINIGUIDE TO GIT (http://rogerdudler.github.io/git-guide/)
+ Choose a Notebook:
+
+1. [Bessel 3GPP Notes](https://blueteo91.github.io/Notes/note_3gpp_bessel.html)
 
 ***
-
-1. Bessel 3GPP Notes (https://blueteo91.github.io/Notes/note_3gpp_bessel.html)
 
 ![DOH](https://github.com/BlueTeo91/Notes/blob/master/homer.jpeg?raw=true)
