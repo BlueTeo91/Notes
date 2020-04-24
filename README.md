@@ -1,4 +1,4 @@
-# MATLAB - NOTES REPO
+# MATLAB - Notes Repository
 
 Hi everybody! Remember a few simple rules for using the repository:
 

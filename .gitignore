@@ -1,0 +1,42 @@
+# Windows default autosave extension
+*.asv
+
+# OSX / *nix default autosave extension
+*.m~
+
+# Compiled MEX binaries (all platforms)
+*.mex*
+
+# Packaged app and toolbox files
+*.mlappinstall
+*.mltbx
+
+# Generated helpsearch folders
+helpsearch*/
+
+# Simulink code generation folders
+slprj/
+sccprj/
+
+# Matlab code generation folders
+codegen/
+
+# Simulink autosave extension
+*.autosave
+
+# Octave session info
+octave-workspace
+
+# VSCode version files (ignore whole folder)
+.vscode/
+
+# FreeFileSync version file
+*.ffs_db
+
+# Data folders do skip
+
+# Other Files
+*.png
+*.fig
+*.mat
+*.ffs_lock
