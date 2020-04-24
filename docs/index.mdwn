@@ -2,7 +2,7 @@
 
  Choose a Notebook:
 
-1. [Bessel 3GPP Notes](https://blueteo91.github.io/Notes/note_3gpp_bessel.html)
+1. [Bessel 3GPP Notes](https://blueteo91.github.io/Notes/bessel3gpp_note/note_3gpp_bessel.html)
 
 ***
 
