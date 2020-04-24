@@ -18,6 +18,7 @@
   2. but gives the reference equations for a regular coverage in theta-phi
   3. GG [cit. A.M.]
 
-![](https://github.com/BlueTeo91/Notes/blob/master/docs/bessel3gpp_note/ref_sys_uv_thetaphi.jpeg?raw=true) \
-![](https://github.com/BlueTeo91/Notes/blob/master/docs/bessel3gpp_note/circle.jpeg?raw=true)
+<!-- ![](https://github.com/BlueTeo91/Notes/blob/master/docs/bessel3gpp_note/ref_sys_uv_thetaphi.jpeg?raw=true) \ -->
+![](https://blueteo91.github.io/Notes/bessel3gpp_note/ref_sys_uv_thetaphi.jpeg) \
+<!-- ![](https://github.com/BlueTeo91/Notes/blob/master/docs/bessel3gpp_note/circle.jpeg?raw=true) -->
 
