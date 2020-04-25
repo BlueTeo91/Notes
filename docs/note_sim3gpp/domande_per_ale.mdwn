@@ -1,0 +1,8 @@
+# NOTE: SIM 3GPP Spin In v2
+## Domande per Ale
+
+***
+
+### FixedTerms_DL.m
+1. The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811
+2. Are the constant parameters from ITU and all the constant in files: gamo.m, gamw.m, gfun.m, ITU676.m... ok?
