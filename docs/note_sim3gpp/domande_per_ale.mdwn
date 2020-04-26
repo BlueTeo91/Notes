@@ -3,6 +3,23 @@
 
 ***
 
+## Downlink Simulator
+
+***
+
 ### FixedTerms_DL.m
 1. The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811
-2. Are the constant parameters from ITU and all the constant in files: gamo.m, gamw.m, gfun.m, ITU676.m... ok?
+2. Are the constant parameters from ITU and all the constant in files: **gamo.m**, **gamw.m**, **gfun.m**, **ITU676.m**... ok?
+
+### UseCaseConfiguration.m
+1. Correction of factor 100 for LOS probability in lines 756-759. *SYSTEM.LOSprobability(:,2)* used also in **Shadowing.m**
+
+### GetDLbudget.m
+1. Not taking into accoutn for cable loss (in 38.821 eq. 6.1.3-5 we have Lc)
+2. Is the coupling loss right?
+
+***
+
+## Uplink Simulator
+
+***
