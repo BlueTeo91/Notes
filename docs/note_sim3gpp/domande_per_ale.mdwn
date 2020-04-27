@@ -7,11 +7,12 @@
 
 ***
 
-### WRAP UP
+### WRAP UP (per DL e UL)
 1. variabili vietcong
 2. polarization loss e combining non consistenti
 3. **NF mancante nel calcolo del CL**
 4. building entry loss e shadow margin mancanti nel link budget
+5. capire come ha inteso quel (1,1,2) per l'array antenna, se con uno sguardo a futuri ampliamenti
 
 ### FixedTerms_DL.m
 1. The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811
@@ -32,9 +33,6 @@
 ## Uplink Simulator
 
 ***
-
-## WRAP UP
-1. Il problema più grosso sono le polarization loss e il combining che non sono consistenti
 
 ### MAIN_UL
 1. SAT.Da = SAT.Da * (SYS.fDL/SYS.fUL); \
