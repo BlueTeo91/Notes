@@ -32,8 +32,8 @@
 
 8. Mathematical Analysis
    - This section aims to describe and assess the impact of both CFO and Differential Doppler in the DL and UL, in the user link
-   - \\(h_k(t)\\): channel coefficient at time instant t with \\(k = 1,\dots, Nu\\)
-   - N_u: is the number of users in the coverage area
+   - $h_k(t)$: channel coefficient at time instant t with $k = 1,\dots, Nu$
+   - $N_u$: is the number of users in the coverage area
 f_dk: instantaneous doppler 
 n_k(t): noise (k-th UT at instant t)
 
@@ -43,6 +43,10 @@ Theta: elevation angle (90° max elevation orbit)
 
 The signal received by the satellite is affected by the differential doppler among users and the CFO 
 While the multiple access of baseband signals associated to each UE is managed by means of SC-FDMA, the differential frequency offset and doppler amongst UEs are sources of degradation which must be compensated at the UE. 
+
+
+
+
 
 
 
