@@ -36,13 +36,21 @@
 </ol>
 <h3 id="fixedtermsdlm">FixedTerms_DL.m</h3>
 <ol>
-<li>The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811</li>
-<li>Are the constant parameters from ITU and all the constant in files: <strong>gamo.m</strong>, <strong>gamw.m</strong>, <strong>gfun.m</strong>, <strong>ITU676.m</strong>... ok?</li>
+<li>The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811 - per calibration 0dB SM, no bel perchè non c' nella 821</li>
+<li>Are the constant parameters from ITU and all the constant in files: <strong>gamo.m</strong>, <strong>gamw.m</strong>, <strong>gfun.m</strong>, <strong>ITU676.m</strong>... ok? (OK)</li>
+<li><strong>per UL considera sempre il recupero di polarizzazione</strong></li>
+<li><strong>perchè la ionospheric scintillation non viene tenuta in considerazione per S-band (a 0 for calibration in 38.821) ma si considerano solo le tropospheric for Ka band (Tolosa reference)?</strong></li>
+<li>mancherebbe anche la cable loss</li>
+<li>mentre le additional loss vengono considerate comunque 0dB</li>
 </ol>
 <h3 id="usecaseconfigurationm">UseCaseConfiguration.m</h3>
 <ol>
 <li>Correction of factor 100 for LOS probability in lines 756-759. <em>SYSTEM.LOSprobability(:,2)</em> used also in <strong>Shadowing.m</strong></li>
-<li>UT.AntConfig per come è usato somma 0dB a UT.RXgain nei vari use cases mentre somma 3dB dopo gli use cases (nel caso handeld)</li>
+<li>UT.AntConfig per come è usato somma 0dB a UT.RXgain nei vari use cases mentre somma 3dB dopo gli use cases (nel caso handeld)
+<ol>
+<li>aggiungi flag: se usi MRC (2 branch) allora metti +3 in ricezione, lasciando la perdita in polarizzazione</li>
+</ol>
+</li>
 <li><strong>la pol loss è sempre a zero</strong></li>
 <li>boobytraps con parametri di configurazione che cambiano in mezzo al codice</li>
 </ol>
@@ -56,67 +64,65 @@
 <hr>
 <h3 id="mainul">MAIN_UL</h3>
 <ol>
-<li>SAT.Da = SAT.Da * (SYS.fDL/SYS.fUL); <br>
+<li><s>SAT.Da = SAT.Da * (SYS.fDL/SYS.fUL); <br>
 SAT.GainRX_dB = SAT.GainTX_dB; <br>
-servono???</li>
+servono???</s></li>
 </ol>
 <h3 id="loadconstantsm">LoadConstants.m</h3>
 <ol>
-<li>metti load constant insieme a configuration come nel download</li>
-<li>lavorando in uv probabilmente si può eliminare <strong>referenceSphere() [MATLAB]</strong> e il suo utilizzo in <strong>SSPcoordinates() [ALE]</strong></li>
-<li>eccetto i valori geodetici della funzione in 1. le altre costanti sono già presenti nel configuration del DL</li>
+<li><s>metti load constant insieme a configuration come nel download</s></li>
+<li><s>lavorando in uv probabilmente si può eliminare <strong>referenceSphere() [MATLAB]</strong> e il suo utilizzo in <strong>SSPcoordinates() [ALE]</strong></s></li>
+<li><s>eccetto i valori geodetici della funzione in 1. le altre costanti sono già presenti nel configuration del DL</s></li>
 </ol>
 <h3 id="readsimdatam">ReadSimData.m</h3>
 <ol start="2">
-<li>Anzichè usare <strong>ReadSimData()</strong> crea un file per use case configuration come per DL (sempre con quei 30)</li>
-<li><strong>ElevationAngle</strong> può essere eliminato (viene sostituito dalle coordinate uv per il boresight) - (double check)</li>
-<li>SYS.OutdoorUsers pare non venire utilizzato - double check</li>
+<li><s>Anzichè usare <strong>ReadSimData()</strong> crea un file per use case configuration come per DL (sempre con quei 30)</s></li>
+<li><s><strong>ElevationAngle</strong> può essere eliminato (viene sostituito dalle coordinate uv per il boresight) - (double check)</s></li>
+<li><s>SYS.OutdoorUsers pare non venire utilizzato - double check</s></li>
 </ol>
 <h3 id="configurationm">Configuration.m</h3>
 <ol>
-<li>Ricade nello use case configuration come per il DL</li>
-<li><strong>Attenzione a SYS.UL_BandSplitFactor !!!!!!!!!!!!</strong></li>
-<li>Attenzione a <strong>SYS.Altitude</strong> usato completamente a caso, impatta sulla risoluzione della griglia lat-lon (fallo compliant nel nuovo codice per fare dei test)</li>
-<li>qui viene fatto il caricamento di satellite e user parameters e use cases</li>
-<li><strong>ReadData()</strong> ricade nella lettura dei dati del satellite che sono gli stessi per il DL quindi può essere affrontata allo stesso modo</li>
-<li><strong>LargeScaleLoss</strong> e <strong>LargeScaleLOSprob</strong> vengono letti allo stesso modo del DL quindi ok</li>
-<li><strong>da capire polarization loss che non è chiara se e come venga utilizzata</strong></li>
+<li><s>Ricade nello use case configuration come per il DL</s></li>
+<li><s><strong>Attenzione a SYS.UL_BandSplitFactor !!!!!!!!!!!!</strong></s></li>
+<li><s>Attenzione a <strong>SYS.Altitude</strong> usato completamente a caso, impatta sulla risoluzione della griglia lat-lon (fallo compliant nel nuovo codice per fare dei test)</s></li>
+<li><s>qui viene fatto il caricamento di satellite e user parameters e use cases</s></li>
+<li><s><strong>ReadData()</strong> ricade nella lettura dei dati del satellite che sono gli stessi per il DL quindi può essere affrontata allo stesso modo</s></li>
+<li><s><strong>LargeScaleLoss</strong> e <strong>LargeScaleLOSprob</strong> vengono letti allo stesso modo del DL quindi ok</s></li>
+<li><s><strong>da capire polarization loss che non è chiara se e come venga utilizzata</strong></s></li>
 </ol>
 <h3 id="getbeamradius">GetBeamRadius</h3>
 <ol>
-<li>non serve, dovrei coprire tutto su beam layout e caricando i parametri del set giusto come in DL</li>
+<li><s>non serve, dovrei coprire tutto su beam layout e caricando i parametri del set giusto come in DL</s></li>
 </ol>
 <h3 id="sspcoordinates">SSPcoordinates</h3>
 <ol>
-<li>inutile se si lavora con terra sferica</li>
-<li>può diventare interessante se tutte le funzioni fanno conversioni geoide &lt;-&gt; sfera passando per ecef come in questa funzione</li>
+<li><s>inutile se si lavora con terra sferica</s></li>
+<li><s>può diventare interessante se tutte le funzioni fanno conversioni geoide &lt;-&gt; sfera passando per ecef come in questa funzione</s></li>
 </ol>
 <h3 id="hexgridgeneration">HexGridGeneration</h3>
 <ol>
-<li>dovrebbe essere tutto integrato in beam layout nuova</li>
+<li><s>dovrebbe essere tutto integrato in beam layout nuova</s></li>
 </ol>
 <h3 id="beamslatlon">BEAMS_LatLon</h3>
-<ol>
-<li>dovrebbe essere tutto integrato in beam layout nuova</li>
-</ol>
+<p>1.<s>dovrebbe essere tutto integrato in beam layout nuova</s></p>
 <ul>
-<li>ProjectToPlane() non serve</li>
-<li>ProjectToSphere() non serve</li>
-<li>createSphere() non serve</li>
-<li>createLine3d() non serve</li>
-<li>intersectLineSphere() non serve</li>
+<li><s>ProjectToPlane() non serve</s></li>
+<li><s>ProjectToSphere() non serve</s></li>
+<li><s>createSphere() non serve</s></li>
+<li><s>createLine3d() non serve</s></li>
+<li><s>intersectLineSphere() non serve</s></li>
 </ul>
 <h3 id="userdeployment">UserDeployment</h3>
 <ol>
-<li>usa quello di DL, sono ancora tutti sulla griglia, poi da capire come vengono selezionati nelle funzioni dopo</li>
+<li><s>usa quello di DL, sono ancora tutti sulla griglia, poi da capire come vengono selezionati nelle funzioni dopo</s></li>
 </ol>
 <h3 id="antennapatternsul">AntennaPatternsUL</h3>
 <ol>
-<li>Non Serve usare Bessel e associazione Beam utente come in downlink basata sul gain in ricezione (gli utenti sono omnidirectional o comunque senza de-pointing)</li>
-<li><strong>RadiationNorm()</strong> non dovrebbe servire, usare Bessel - <strong>controlla per gain in ricezione</strong></li>
-<li><strong>per offAxis intendi il d_theta?</strong> (credo di si)</li>
-<li>associazione utente best beam da fare per distanza (circolare) o gain max (generico come nel down link)</li>
-<li>Dopo aver associato UT a best Beam fai anche tutte le associazioni dei Tiers, Colori come per DL</li>
+<li><s>Non Serve usare Bessel e associazione Beam utente come in downlink basata sul gain in ricezione (gli utenti sono omnidirectional o comunque senza de-pointing)</s></li>
+<li><s><strong>RadiationNorm()</strong> non dovrebbe servire, usare Bessel - <strong>controlla per gain in ricezione</strong></s></li>
+<li><s><strong>per offAxis intendi il d_theta?</strong> (credo di si)</s></li>
+<li><s>associazione utente best beam da fare per distanza (circolare) o gain max (generico come nel down link)</s></li>
+<li><s>Dopo aver associato UT a best Beam fai anche tutte le associazioni dei Tiers, Colori come per DL</s></li>
 </ol>
 <h3 id="scheduling">Scheduling</h3>
 <ol>
@@ -129,7 +135,7 @@ servono???</li>
 </li>
 <li><strong>da capire perchè vengono schedulati anche più utenti di quelli presenti nel beam (seguendo il beam più popoloso e ripetendo gli utenti)</strong></li>
 </ol>
-<h3 id="fixedtermsul">FixedTerms_UL</h3>
+<h3 id="fixedtermsul"><s>FixedTerms_UL</s></h3>
 <ol>
 <li><strong>potrebbe essere usate così com'è adattando le variabili</strong></li>
 <li>da confrontare i risultati ma il codice segue quello del DL, <strong>chiaramente in UL</strong></li>
@@ -156,6 +162,12 @@ servono???</li>
 <li>il problema è che ci dovrebbero essere solo 10 UE per beam ma sono di più</li>
 </ul>
 </li>
+</ol>
+<hr>
+<hr>
+<h2 id="note-for-future-improvements">Note for future improvements</h2>
+<ol>
+<li>add</li>
 </ol>
 
     </body>

@@ -15,12 +15,17 @@
 5. capire come ha inteso quel (1,1,2) per l'array antenna, se con uno sguardo a futuri ampliamenti
 
 ### FixedTerms_DL.m
-1. The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811
-2. Are the constant parameters from ITU and all the constant in files: **gamo.m**, **gamw.m**, **gfun.m**, **ITU676.m**... ok?
+1. The building entry loss are not considered, is it correct? Apparently it's not in the equation for path loss in 38.821 for NTN calibration but it is considered in 38.811 - per calibration 0dB SM, no bel perchè non c' nella 821
+2. Are the constant parameters from ITU and all the constant in files: **gamo.m**, **gamw.m**, **gfun.m**, **ITU676.m**... ok? (OK)
+3. **per UL considera sempre il recupero di polarizzazione**
+4. **perchè la ionospheric scintillation non viene tenuta in considerazione per S-band (a 0 for calibration in 38.821) ma si considerano solo le tropospheric for Ka band (Tolosa reference)?**
+5. mancherebbe anche la cable loss
+6. mentre le additional loss vengono considerate comunque 0dB
 
 ### UseCaseConfiguration.m
 1. Correction of factor 100 for LOS probability in lines 756-759. *SYSTEM.LOSprobability(:,2)* used also in **Shadowing.m**
 2. UT.AntConfig per come è usato somma 0dB a UT.RXgain nei vari use cases mentre somma 3dB dopo gli use cases (nel caso handeld)
+   1. aggiungi flag: se usi MRC (2 branch) allora metti +3 in ricezione, lasciando la perdita in polarizzazione
 3. **la pol loss è sempre a zero**
 4. boobytraps con parametri di configurazione che cambiano in mezzo al codice
 
@@ -35,56 +40,56 @@
 ***
 
 ### MAIN_UL
-1. SAT.Da = SAT.Da * (SYS.fDL/SYS.fUL); \
+1. ~~SAT.Da = SAT.Da * (SYS.fDL/SYS.fUL); \
 SAT.GainRX_dB = SAT.GainTX_dB; \
-servono???
+servono???~~
 
-### LoadConstants.m
-1. metti load constant insieme a configuration come nel download
-2. lavorando in uv probabilmente si può eliminare **referenceSphere() [MATLAB]** e il suo utilizzo in **SSPcoordinates() [ALE]**
-3. eccetto i valori geodetici della funzione in 1. le altre costanti sono già presenti nel configuration del DL
+### ~~LoadConstants.m~~
+1. ~~metti load constant insieme a configuration come nel download~~
+1. ~~lavorando in uv probabilmente si può eliminare **referenceSphere() [MATLAB]** e il suo utilizzo in **SSPcoordinates() [ALE]**~~
+2. ~~eccetto i valori geodetici della funzione in 1. le altre costanti sono già presenti nel configuration del DL~~
 
-### ReadSimData.m
-2. Anzichè usare **ReadSimData()** crea un file per use case configuration come per DL (sempre con quei 30)
-2. **ElevationAngle** può essere eliminato (viene sostituito dalle coordinate uv per il boresight) - (double check)
-3. SYS.OutdoorUsers pare non venire utilizzato - double check
+### ~~ReadSimData.m~~
+2. ~~Anzichè usare **ReadSimData()** crea un file per use case configuration come per DL (sempre con quei 30)~~
+2. ~~**ElevationAngle** può essere eliminato (viene sostituito dalle coordinate uv per il boresight) - (double check)~~
+3. ~~SYS.OutdoorUsers pare non venire utilizzato - double check~~
 
-### Configuration.m
-1. Ricade nello use case configuration come per il DL 
-2. **Attenzione a SYS.UL_BandSplitFactor !!!!!!!!!!!!**
-3. Attenzione a **SYS.Altitude** usato completamente a caso, impatta sulla risoluzione della griglia lat-lon (fallo compliant nel nuovo codice per fare dei test)
-4. qui viene fatto il caricamento di satellite e user parameters e use cases
-5. **ReadData()** ricade nella lettura dei dati del satellite che sono gli stessi per il DL quindi può essere affrontata allo stesso modo
-6. **LargeScaleLoss** e **LargeScaleLOSprob** vengono letti allo stesso modo del DL quindi ok
-7. **da capire polarization loss che non è chiara se e come venga utilizzata**
+### ~~Configuration.m~~
+1. ~~Ricade nello use case configuration come per il DL~~
+2. ~~**Attenzione a SYS.UL_BandSplitFactor !!!!!!!!!!!!**~~
+3. ~~Attenzione a **SYS.Altitude** usato completamente a caso, impatta sulla risoluzione della griglia lat-lon (fallo compliant nel nuovo codice per fare dei test)~~
+4. ~~qui viene fatto il caricamento di satellite e user parameters e use cases~~
+5. ~~**ReadData()** ricade nella lettura dei dati del satellite che sono gli stessi per il DL quindi può essere affrontata allo stesso modo~~
+6. ~~**LargeScaleLoss** e **LargeScaleLOSprob** vengono letti allo stesso modo del DL quindi ok~~
+7. ~~**da capire polarization loss che non è chiara se e come venga utilizzata**~~
 
-### GetBeamRadius
-1. non serve, dovrei coprire tutto su beam layout e caricando i parametri del set giusto come in DL
+### ~~GetBeamRadius~~
+1. ~~non serve, dovrei coprire tutto su beam layout e caricando i parametri del set giusto come in DL~~
 
-### SSPcoordinates
-1. inutile se si lavora con terra sferica
-2. può diventare interessante se tutte le funzioni fanno conversioni geoide <-> sfera passando per ecef come in questa funzione
+### ~~SSPcoordinates~~
+1. ~~inutile se si lavora con terra sferica~~
+2. ~~può diventare interessante se tutte le funzioni fanno conversioni geoide <-> sfera passando per ecef come in questa funzione~~
 
-### HexGridGeneration
-1. dovrebbe essere tutto integrato in beam layout nuova
+### ~~HexGridGeneration~~
+1. ~~dovrebbe essere tutto integrato in beam layout nuova~~
    
-### BEAMS_LatLon
-1. dovrebbe essere tutto integrato in beam layout nuova
-- ProjectToPlane() non serve
-- ProjectToSphere() non serve
-- createSphere() non serve
-- createLine3d() non serve
-- intersectLineSphere() non serve
+### ~~BEAMS_LatLon~~
+1.~~dovrebbe essere tutto integrato in beam layout nuova~~
+- ~~ProjectToPlane() non serve~~
+- ~~ProjectToSphere() non serve~~
+- ~~createSphere() non serve~~
+- ~~createLine3d() non serve~~
+- ~~intersectLineSphere() non serve~~
 
-### UserDeployment
-1. usa quello di DL, sono ancora tutti sulla griglia, poi da capire come vengono selezionati nelle funzioni dopo
+### ~~UserDeployment~~
+1. ~~usa quello di DL, sono ancora tutti sulla griglia, poi da capire come vengono selezionati nelle funzioni dopo~~
 
-### AntennaPatternsUL
-1. Non Serve usare Bessel e associazione Beam utente come in downlink basata sul gain in ricezione (gli utenti sono omnidirectional o comunque senza de-pointing)
-2. **RadiationNorm()** non dovrebbe servire, usare Bessel - **controlla per gain in ricezione**
-3. **per offAxis intendi il d_theta?** (credo di si)
-4. associazione utente best beam da fare per distanza (circolare) o gain max (generico come nel down link)
-5. Dopo aver associato UT a best Beam fai anche tutte le associazioni dei Tiers, Colori come per DL
+### ~~AntennaPatternsUL~~
+1. ~~Non Serve usare Bessel e associazione Beam utente come in downlink basata sul gain in ricezione (gli utenti sono omnidirectional o comunque senza de-pointing)~~
+2. ~~**RadiationNorm()** non dovrebbe servire, usare Bessel - **controlla per gain in ricezione**~~
+3. ~~**per offAxis intendi il d_theta?** (credo di si)~~
+4. ~~associazione utente best beam da fare per distanza (circolare) o gain max (generico come nel down link)~~
+5. ~~Dopo aver associato UT a best Beam fai anche tutte le associazioni dei Tiers, Colori come per DL~~
 
 ### Scheduling
 1. **potrebbe essere usata così com'è adattando i nomi delle struct: BEAMS, SYS, USERS**
@@ -93,18 +98,18 @@ servono???
    2. evitare di usare for per trovare i beam interferenti e schedulare gli utenti
 3. **da capire perchè vengono schedulati anche più utenti di quelli presenti nel beam (seguendo il beam più popoloso e ripetendo gli utenti)**
 
-### FixedTerms_UL
+### ~~FixedTerms_UL~~
 1. **potrebbe essere usate così com'è adattando le variabili**
 2. da confrontare i risultati ma il codice segue quello del DL, **chiaramente in UL**
 3. **Per divisione di banda vedi Table 6.1.3.2-1 38.821**
 
-### StochasticTerms_UL
+### ~~StochasticTerms_UL~~
 1. Stochastic terms are generated for alla the users schedulated before
 2. da capire ancora perchè vengano schedulati così tanti utenti quando ce ne vogliono 10 per beam
 3. **ShadowingUL()** double check but could be used the same of DL
 4. **ScintillationUL()** double check but could be used the same of DL
 
-### GetULbudget
+### ~~GetULbudget~~
 1. **potrebbe essere usata così com'è con piccoli adattamenti**
 2. non vine usato il NF per il coupling loss nemmeno qui
 3. Non si capisce ancora perchè non vengano pescati solo 10 utenti per calcolare l'interferenza?
@@ -113,3 +118,18 @@ servono???
    2. BW_beam/10 (UL_BandSplitFactor) per VSAT
    - il problema è che ci dovrebbero essere solo 10 UE per beam ma sono di più
     
+
+
+!!!!!!!!! Riscrivi user deployment: non puoi fare  il deployment solo nei tier di interesse ma su tutti
+poi scarti dopo le statistiche
+
+***
+***
+## Note for future improvements
+
+
+
+***
+## Nuove Domande
+1. c'è una ragione per la condizione riga 109 in UserDeployment.m (codice originale OneDrive con solo modifica readcell)
+2. nel codice di Ale la condizione size(antconfig) nello use case configuration non funziona (non ho depolarization loss solo perchè è forzata a 0)

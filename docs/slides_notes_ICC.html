@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>NOTES SLIDES ICC 2020</title>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h2 id="notes-slides-icc-2020">NOTES SLIDES ICC 2020</h2>
+<ol start="4">
+<li>
+<p>NB-IoT Overview:</p>
+<ul>
+<li>3GPP, recognizing the importance of IoT has introduced a number of key features for supporting the latter since Release 13</li>
+<li>based on existing (LTE) functionalities with essential simplifications and optimizations</li>
+<li>improved indoor coverage
+<ul>
+<li>high number of repetitions</li>
+</ul>
+</li>
+<li>support for ultra-low complexity devices</li>
+<li>improved power efficiency
+<ul>
+<li>extend Discontinuous Reception (eDRX)</li>
+<li>Power Saving Mode (PSM)</li>
+</ul>
+</li>
+<li>support of massive number of devices</li>
+<li>relaxed latency requirements</li>
+<li>deploy NB-IoT inside an LTE band or refarming GSM spectrum (In-Band, Guard-Band and Stand-Alone)</li>
+<li>OFDMA is adopted for the downlink (DL), SC-FDMA for the uplink (UL)</li>
+<li>NB-IoT occupies 180 kHz of spectrum, which is considerably smaller than LTE bandwidths</li>
+<li>In the DL, NB- IoT fully inherits numerology from LTE</li>
+<li>in the UL, besides the subcarrier spacing (SCS) of 15 kHz inherited from LTE, a 3.75 kHz SCS is also supported and single tone assignment could be used for the UL</li>
+</ul>
+</li>
+<li>
+<p>SatCom in 5G IoT</p>
+<ul>
+<li>Although SatCom solutions are usually tailored for specific tasks and services, without cooperation with terrestrial networks, the upcoming 5G and the plethora of new use cases and services grant the unique opportunity to establish a new synergy among these two systems</li>
+</ul>
+</li>
+<li>
+<p>System Model</p>
+<ul>
+<li>Architecture from NTN TS 38.811</li>
+<li>The interest of satellite manifacturers and operators towards Low Earth Orbit (LEO) and Very Low Earth Orbit (VLEO) satellites architectures, is growing fast</li>
+<li>Direct access to the satellite</li>
+<li>transparent satellites providing backhaul connection among UT and Gateway (GW)</li>
+<li>For both the backhaul and access links, the system adopts:
+<ul>
+<li>Orthogonal Frequency Division Multiplexing (OFDM) in the downlink</li>
+<li>Single-Carrier Frequency Division Multiple Access (SC-FDMA)</li>
+</ul>
+</li>
+<li>For the sake of simplicity 2 UT considered in visibility by the same satellite</li>
+</ul>
+</li>
+<li>
+<p>Mathematical Analysis</p>
+<ul>
+<li>This section aims to describe and assess the impact of both CFO and Differential Doppler in the DL and UL, in the user link</li>
+<li>\(h_k(t)\): channel coefficient at time instant t with \(k = 1,\dots, Nu\)</li>
+<li>N_u: is the number of users in the coverage area
+f_dk: instantaneous doppler
+n_k(t): noise (k-th UT at instant t)</li>
+</ul>
+</li>
+</ol>
+<p>w_sat: sate angular speed
+Re: Earth radius
+Theta: elevation angle (90° max elevation orbit)</p>
+<p>The signal received by the satellite is affected by the differential doppler among users and the CFO
+While the multiple access of baseband signals associated to each UE is managed by means of SC-FDMA, the differential frequency offset and doppler amongst UEs are sources of degradation which must be compensated at the UE.</p>
+
+    </body>
+    </html>

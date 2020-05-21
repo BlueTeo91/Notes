@@ -1,0 +1,7 @@
+# MARTIAN TELCO #13 (21/05/2020)
+
+* General discussion on modifications (Ale)
+
+## WP 7
+* Dynamic spectrum access technologies:
+  * simulation activity, involving precoding (Michael Schmidt)

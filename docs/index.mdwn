@@ -3,6 +3,7 @@
 ## Choose a Notebook:
 1. [Bessel 3GPP Notes](https://blueteo91.github.io/Notes/bessel3gpp_note/note_3gpp_bessel.html)
 2. [Questions for Ale](https://blueteo91.github.io/Notes/note_sim3gpp/domande_per_ale.html)
+3. [Questions for Ale](https://blueteo91.github.io/Notes/slides_notes_ICC.html)
 
 ***
 

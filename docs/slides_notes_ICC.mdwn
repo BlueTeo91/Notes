@@ -1,0 +1,48 @@
+## NOTES SLIDES ICC 2020
+
+4. NB-IoT Overview:
+   - 3GPP, recognizing the importance of IoT has introduced a number of key features for supporting the latter since Release 13
+   - based on existing (LTE) functionalities with essential simplifications and optimizations
+   - improved indoor coverage
+     * high number of repetitions
+   - support for ultra-low complexity devices
+   - improved power efficiency 
+     * extend Discontinuous Reception (eDRX)
+     * Power Saving Mode (PSM)
+   - support of massive number of devices
+   - relaxed latency requirements 
+   - deploy NB-IoT inside an LTE band or refarming GSM spectrum (In-Band, Guard-Band and Stand-Alone)
+   - OFDMA is adopted for the downlink (DL), SC-FDMA for the uplink (UL)
+   - NB-IoT occupies 180 kHz of spectrum, which is considerably smaller than LTE bandwidths
+   - In the DL, NB- IoT fully inherits numerology from LTE
+   - in the UL, besides the subcarrier spacing (SCS) of 15 kHz inherited from LTE, a 3.75 kHz SCS is also supported and single tone assignment could be used for the UL
+
+5. SatCom in 5G IoT
+   - Although SatCom solutions are usually tailored for specific tasks and services, without cooperation with terrestrial networks, the upcoming 5G and the plethora of new use cases and services grant the unique opportunity to establish a new synergy among these two systems
+
+6. System Model
+   - Architecture from NTN TS 38.811
+   - The interest of satellite manifacturers and operators towards Low Earth Orbit (LEO) and Very Low Earth Orbit (VLEO) satellites architectures, is growing fast
+   - Direct access to the satellite
+   - transparent satellites providing backhaul connection among UT and Gateway (GW) 
+   - For both the backhaul and access links, the system adopts:
+     * Orthogonal Frequency Division Multiplexing (OFDM) in the downlink
+     * Single-Carrier Frequency Division Multiple Access (SC-FDMA)
+   - For the sake of simplicity 2 UT considered in visibility by the same satellite
+
+8. Mathematical Analysis
+   - This section aims to describe and assess the impact of both CFO and Differential Doppler in the DL and UL, in the user link
+   - \\(h_k(t)\\): channel coefficient at time instant t with \\(k = 1,\dots, Nu\\)
+   - N_u: is the number of users in the coverage area
+f_dk: instantaneous doppler 
+n_k(t): noise (k-th UT at instant t)
+
+w_sat: sate angular speed
+Re: Earth radius
+Theta: elevation angle (90° max elevation orbit)
+
+The signal received by the satellite is affected by the differential doppler among users and the CFO 
+While the multiple access of baseband signals associated to each UE is managed by means of SC-FDMA, the differential frequency offset and doppler amongst UEs are sources of degradation which must be compensated at the UE. 
+
+
+
