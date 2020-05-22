@@ -26,9 +26,14 @@
 
 
 ***
-### 6. System Model
+### 6. Doppler impact over NB-IoT
+- doppler can be split into a **common term**, common to all the UT served by the same satellite
+- and a **differential term** depending on the relative positions of the UTs in the footprint
+
+***
+### 7. System Model
 - Architecture from NTN TS 38.811
-- The interest of satellite manifacturers and operators towards Low Earth Orbit (LEO) and Very Low Earth Orbit (VLEO) satellites architectures, is growing fast
+- The interest of satellite manufacturers and operators towards Low Earth Orbit (LEO) and Very Low Earth Orbit (VLEO) satellites architectures, is growing fast
 - Direct access to the satellite
 - transparent satellites providing backhaul connection among UT and Gateway (GW) 
 - For both the backhaul and access links, the system adopts:
@@ -40,7 +45,7 @@
 ### 8. Mathematical Analysis
 - This section aims to describe and assess the impact of both CFO and Differential Doppler in the DL and UL, in the user link
 >$$h'_k(t) = h_k(t) e^{j 2 \pi f_{d_k} t} + n_k(t)$$
->- $h_k(t)$: channel coefficient at time instant $t$ with $k > = 1,\dots, Nu$
+>- $h_k(t)$: channel coefficient at time instant $t$ with $k = 1,\dots, Nu$
 >- $N_u$: is the number of users in the coverage area
 >- $f_{d_k}$: instantaneous doppler 
 >- $n_k(t)$: noise ($k$-th UT at instant $t$)
@@ -50,14 +55,84 @@
 >- $R_e$: Earth radius
 >- $\theta_k(t)$: elevation angle (90° max elevation orbit)
 
-- The signal received by the satellite is affected by the **differential doppler** among users and the **CFO** 
-  - **is given by the superposition of each signal from the UT**
+- The (UL) signal received by the satellite is then shown in (3):
+  - it **is given by the superposition of each signal from the UT** and
+  - it is affected by the **differential doppler** among users and the **CFO** 
+  - channel coeff $h_k(t)$ for k-th UT
+  - oscillator freq $f_0$
+  - doppler at istant t $f_{d_k}(t)$ for k-th UT
 - the differential frequency offset and doppler among UEs are sources of degradation which must be compensated at the UE (our paper) 
 - In order to accomplish this procedure, each UE must be aware of the instantaneous doppler with respect to the satellite antenna
 
+- The (DL) signal received by each UE can be described as (4), are visible:
+  - channel coeff $h_k(t)$ for k-th UT
+  - oscillator freq $f_0$
+  - doppler at istant t $f_{d_k}(t)$ for k-th UT
+  
+***
+### 9. Mathematical Analysis: UT
+- after downconversion multiplying by $f_k$ at the terminal we obtain (5)
+- paying attention to the exponent of exponential in (5) we can identify the offset written in (6), which must be recovered to recover the received data
+  
+> $$f_{0d_{kU}}(t)=f_{d_{k}}(t)-f_{\Delta k}$$ 
+> - is composed by the doppler frequency of the UT and the frequency offset added by k-th UT oscillator
+
+- by applying then **frequency advance technique** from [6,7]:
+  * LTE trials in the return channel over satellite
+  * Demonstration of Virtual Mimo in the Uplink
+- the new transmitted signal from the UT will be as it is equation (7)
+  - note the estimated offset denoted by the hat
+
+***
+### 10. Mathematical Analysis: eNB
+- It’s worth to remember that the feeder link is assumed ideal, then we can consider that the eNB will receive the superposition of all UE signals (8)
+- If the UL communication occurs within a sufficiently small time interval ($\tau_k$) after the offset has been estimated on the DL signal, we can assume almost constant doppler obtaining, after few simplifications we can from (9) to (10)
+
+***
+### 11. Mathematical Analysis: Results
+- Therefore even if frequency advance technique is effective on removing CFO it cannot compensate the doppler effect resulting on corrupted data in (10)
+- On the other hand, the use of the proposed doppler pre-compensation strategy would mitigate the undesired differential doppler if $\tau_k$ is sufficiently short to consider the doppler almost constant. 
+- The main idea is to use the offset estimated on the DL channel with opposite sign, in order to compensate the UL signal leading to (11), with CFO not compensated
+- It is worth noting that the pre-compensation is opposite to the frequency advance according to the formulation
+- they should then be treated separately
+- As a matter of fact it is not possible to simultaneously compensate both CFO and doppler variation
+  - Then we should choose the most effective technique in order to compensate the error which cause the greater signal degradation
+- A further improvement of the aforementioned technique consists in the acquisition of two carriers at the UE terminal, exploiting them to recover both the frequency offset, a simple summary can be seen in (12) and (13):
+>  -  $f^{(c_1)}$, $f^{(c_2)}$: estimation of the 2 carriers
+>  -  $f^{(c_1)}_{d_k}$, $f^{(c_1)}_{d_k}$: doppler effect on the two different carriers
+>  -  $\Delta f(c)$ is the nominal frequency difference among the two carriers
+>  -  $f_k$ is the oscillator frequency at the terminal side
+>  -  $f_0$ is the reference carrier frequency of the system
+
+- The only unknown in the equation system (13) are $f_k$ and $\Delta v$, which can be computed unless an estimation error of the two carriers
+- After their computation it is possible to use the results in the previously analized solution for the compensation of CFO and doppler shift
+
+***
+### 12. Results: diff doppler
+- Evaluation of the differential doppler over LEO satellites is shown
+- The aim is to quantify the differential doppler in worst case conditions and compare the obtained results with the constraint given by NB-IoT
+- As already mentioned, the doppler compensation method is efficient if and only if the value of $\tau_k$ is sufficiently small.
+- Furthermore it is worth to recall that the common component of the Doppler, which is nothing but the doppler seen by the reference user in the coverage area, can be compensated by means of a GNSS (Global Navigation Satellite System) receiver
+- In the Table III are reported the simulation results for the maximum allowed values of $\tau_k$, for a satellite altitude value ranging of 300, 800 and 1200 km. The values of each row correspond to the worst case scenario for each value of hSAT , i.e., the maximum inter-UEs distance among UEs in the same coverage area 200 km)
+- maximum value for $\tau_k$ in order to achieve a residual doppler lower than the maximum value of doppler allowed for NB-IoT, previously discussed
 
 
+- The figure on the left shows an example of the doppler behavior over time, for two UEs placed at different relative distances (D) within the coverage area, with a reference $h_{SAT}$ of 300 km. 
+- The time origin (0 min) coincides with the UE position at the satellite’s nadir, when the doppler experienced by the UE is null. 
+- The difference between the curves of two users represents the **differential doppler** which is seen by the satellite antenna at each timing instant
+- It helps to understand the behavior of the residual differential doppler in the Figure to the right
+- As expected, the **higher is the orbit the lower is the differential doppler**. Furthermore it can be noticed that the **differential doppler increases with the relative distance among UEs**. 
+> - Figure 3 shows the residual doppler for a value of $\tau_k = 1337$ ms, which is the worst value acceptable for a subcarrier spacing $\Delta f_{sc} = 15$ kHz and a satellite altitude $h_{SAT} = 300$ km
+> - (so basically the figure make sense only for the 300 km case)
 
-
-
-
+***
+### 13. Results
+- Further simulations has been carried on in order to assess the **typical value of $\tau_k$ for an hypotetic system (constellation)**. 
+- The three different satellite constellations, with transparent payloads, previously described have been used
+- Two different GW deployments on ground:
+  - Scenario 1: 100 % GW availability (each satellite is always visible from at least one GW)
+  - Scenario 1: 90% availability
+- The figures Cumulative Distribution Fuction (CDF) of $\tau_k$, as the signal travel time from UT to the GW
+- It is worth it to notice that:
+  - Scenario 1 meets the requirements on the maximum value of $\tau_k$ for all the UE served by the constellation 
+  - while it is not possible to meet the requirements if the satellites are not visible at least from one GW (scenario 2)
