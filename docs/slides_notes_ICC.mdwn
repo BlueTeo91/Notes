@@ -16,7 +16,7 @@
 - OFDMA is adopted for the downlink (DL), SC-FDMA for the uplink (UL)
 - NB-IoT occupies 180 kHz of spectrum, which is considerably smaller than LTE bandwidths
 - In the DL, NB- IoT fully inherits numerology from LTE
-- in the UL, besides the subcarrier spacing (SCS) of 15 kHz inherited from LTE, a 3.75 kHz SCS is also supported and single tone assignment could be used for the UL
+- in the UL, besides the subcarrier spacing (SCS) of 15 kHz inherited from LTE, a 3.75 and 1.25 kHz SCS is also supported and single tone assignment could be used for the UL
 
 ***
 ### 5. SatCom in 5G IoT
