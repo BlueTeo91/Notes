@@ -1,0 +1,28 @@
+# SATELIOT PRESENTATION NOTES
+Ciao Alessandro,
+
+si, il paper di Oltjon è quello che abbiamo citato nel nostro lavoro.
+
+A quanto leggo dalla mail, sia per il gain che per la beam size che vedo, stanno prendendo come riferimento il Set-1 della 38.821. Come diciamo anche nel nostro paper, poi confermato da Cioni, quel Set di parametri non ha troppo senso per un payload IoT in termini di power constraints. Ha invece più senso considerare parametri del Set-2 e di quello che sarà probabilmente il nuovo Set-3 nel prossimo futuro. 
+
+Poi nella mail fanno riferimento ai 20 beam indicati dal 3GPP (che in realtà sono 19), solo che questo valore non viene preso come pattern di esempio per un caso “reale”, bensì come numero di beam su cui calcolare le statistiche per le simulazioni (a meno che non facciano riferimento ad un valore che mi è sfuggito). A questo proposito, Huawei suggeriva un numero di beam per satellite ben diverso. Nel nostro paper consideriamo anche il pattern suggerito da Huawei e facciamo simulazioni per vedere il link budget. Voglio sottolineare però che i numeri suggeriti da Huawei, in termini di numero di beam per satellite, sono spropositati per un payload IoT e questo l’hanno confermato pure Ginesi e Cioni.
+
+Passagli pure il nostro paper, spero lo trovino utile, anche per i parametri e le reference ai vari documenti del 3GPP su NTN.
+
+Sarei curioso di sapere come intendono realizzare antenna/payload a Sateliot: 
+Vogliono rispettare le constraints di dimensioni dei beam del 3GPP? Quindi generare un numero elevato di beam per sfruttare il FOV del satellite, ma con problemi di power constraints? O al contrario generare un minor numero di beam, perdendo il “vantaggio della geometria”, ma rimanendo dentro power constraints più restrittive?
+Oppure vogliono considerare beam size diverse, rischiando di non rispettare i requirements in termini di delay/Doppler del 3GPP?
+Stanno considerando l’opzione moving beams o fixed beams?
+Sono molto curioso riguardo all’implementazione e visto che loro hanno il know how mi piacerebbe sapere come pensano di procedere.
+
+Saluti,
+Matteo
+
+
+
+## SLIDES
+* Slide Parameters 3GPP NTN: using those parameters we run some simulations for the paper (then describe paper and results)
+* Describe briefly modules of ESiM2M even with no slides
+
+* Check MAGMA NB-IoT implementation
+* 

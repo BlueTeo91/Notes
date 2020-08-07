@@ -1,0 +1,29 @@
+# NB-IoT Ideas
+
+## Scheduling 
+1) Partendo dal lavoro di Oltjon:
+   - si potrebbe fare uno scheduling basato su clustering (o altro algoritmo di ML/NN) e/o utilizzando metodi di ottimizzazione (tool cvx o altro, magari in python)
+   - lo scheduling si dovrebbe basare sulle caratteristiche del coefficiente di canale:
+     1. usare ad esempio le stesse subcarrier per UT con doppler/diff doppler simile
+     2. considerare UT con Coupling Loss (CL) simile, in modo da rimanere al di sotto della threshold di doppler compensabile (950 Hz)
+     3. raggruppare utenti con simile delay/diff delay in modo da rimanere sotto la soglia massima di Timing Advance (TA) compensabile
+     4. oppure una combinazione delle 3
+
+2) Bisogna fare ricerca bibliografica estensiva per vedere i lavori già sviluppati in questo senso, oltre a quelli di Oltjon o comunque satellite specific
+3) Occorre realizzare la catena di Tx/Rx per NB-IoT come quella di Oltjon (che comunque potrebbe tornare utile anche per il progetto ESA del simulatore)
+4) L'analisi di ottimizzazione potrebbe essere scalata al caso multi-satellite, magari cominciando a considerare un piccolo gruppo di satelliti (tipo i 7 satelliti consigliati nella Option-2 della 38.821)
+5) Gli outcomes dovrebbero essere le performance a livello di throughput/PLR... 
+6) Ottimizzazione:
+   - bisogna capire se si può formulare il problema in modo da renderlo **convesso**
+   - se non è possibile ci sono anche tool che fanno ottimizzazione tipo greedy senza dover per forza avere un problema convesso
+
+**Oltjon sta lavorando ad un journal sullo scheduling quindi è avvantaggiato e probabilmente farà qualcosa di simile, cercare di capire i suoi outcome in modo da non ritrovarsi con un overlap del lavoro del 100%**
+
+## Performance Comparison
+1) **Describing the simulation Tool a first analysis could be done for NB-IoT NPRACH performance** (conference or journal)
+2) A second possible analysis would be possible for the NPUSCH
+3) Furthermore NPUSCH could be compared with ESSA performance
+4) We never did a work on ESSA performance in constellation using the Tool (still don't know if it's interesting)
+
+## Dream
+1) Realization on FPGA of scheduling for NB-IoT as previously described (collaboration with JMA?)

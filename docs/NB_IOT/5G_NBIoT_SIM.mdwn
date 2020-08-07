@@ -1,0 +1,4 @@
+# 5G NB-IoT Simulatore NOTES
+## NPRACH
+- How the preamble and its repetitions are distributed, and that a UT can be identified by the first subcarrier of the first preamble repetitions (36.211, Section 10)
+- Look at RA procedure and contention resolution (Tesi_Pennacchioni), if N UE collides at msg1, after the contention resolution only one is picked, while all the others discarded and must attempt RA again. It could be done random based, because the msg3 is sent to the eNB after a random timer (T300), but maybe it is better to assign higher probability to UE with a better channel (i.e. closer to the eNB with better PL)

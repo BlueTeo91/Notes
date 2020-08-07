@@ -1,0 +1,41 @@
+# Galileo Notes
+### IEEExplore Serch
+- ((("All Metadata":galileo) OR "All Metadata":g2g) AND "All Metadata":messaging) 
+- galileo second generation 
+- (("All Metadata":galileo) AND "All Metadata":short message) 
+- (("All Metadata":g2g) AND "All Metadata":message) 
+- (("All Metadata":galileo) AND "All Metadata":two way service) 
+- (("All Metadata":beidou) AND "All Metadata":two way service) 
+- (("All Metadata":beidou) AND "All Metadata":short message) 
+- (("All Metadata":beidou) AND "All Metadata":2 way messaging) 
+- (("All Metadata":galileo) AND "All Metadata":sar) 
+
+
+### Ideas to write paper
+- start talking about SMS service in Beidou 1-3 then says that could be a good service to be exploited also in Galileo beside another already 2way service which is SAR 
+- iot over satellite in introduction (cita anche 5g forse)
+- lavori su ESSA vari (anche S-MIM)
+- spiega essa
+- spiega system model
+- spiega simulatore
+- use of global coverage of galileo to reach remote areas for sensor gathering data and cargo tracking (qui attacca iot in satellite)
+
+### Reference (for introduction/SoA)
+- https://doi.org/10.1007/s00190-017-1005-2 for ref on beidou gnss from paper: A Novel Push-To-Talk Service over Beidou-3 Satellite Navigation System, **[4]** (no need for reading)
+- magari prova a dire che grazie al servizio sms vari 2way services  possono essere adattati (come quelli vocoder) e quindi sarebbe una possibilità in più anche per galileo (per vocoder prendi sempre reference da: A Novel Push-To-Talk Service over Beidou-3 Satellite Navigation System)
+
+* reference for possible 2 way services in Beidou (then applicable in a possible 2 way service in Galileo, beside the already mentioned SAR) **(questi paper in generale sono rotti, quindi cerca di citare il meno possibile)**
+  * A Novel Push-To-Talk Service over Beidou-3 Satellite Navigation System
+  * Subscription Resource Transfer Protocol Based on Beidou Short Message in Satellite Distance Education System
+  * Global voice chat over short message service of Beidou navigation system (molto rotto)
+  * Research on Handheld Mobile Inspection Terminal Based on Beidou Communication (questo è citabile come applicazione IoT per power grid)
+  * Research on the Online Monitoring Data Transmission Technology Based on Beidou Communication (questo è citabile come applicazione IoT per power grid, molto simile al precedente, stessi autori)
+  * Design and Implementation of Reliable Data Transmission System for Emergency Communications Based on 3G and BeiDou Navigation Satellite 
+  * Intelligent vehicle safety system based on BeiDou satellite navigation system (IoT, M2M, safety)
+
+- Mi servono anche reference per dire che esisterà G2G (nello specifico ricontrolla per i 2 way services ma se si continua a non trovare nulla cita solo SAR)
+
+* trova anche 1/2 reference specifiche per SAR:
+  * Performance Evaluation of Satellite-Based Search and Rescue Services: Galileo vs. Cospas-Sarsat
+  * Overview of the Cospas-Sarsat Satellite System for Search and Rescue (solo come Cospas-Sarsat reference)
+  * Concept and Performance Evaluation of a Galileo-based Emergency Short Message Service (reference come 2way SMS service basato su Galileo SAR)

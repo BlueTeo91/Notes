@@ -1,0 +1,28 @@
+1) aspetti relativi a NTN (di tipo tutoriale): da tenere più breve rispetto alla parte di nbiot
+    - standard architecture
+    - problematiche e possibili soluzioni
+
+2) NB-IoT: sotto categoria di NTN (applicazioni) IoT come use case di NTN
+    - descrizione generale partendo dal 4G più cenni al 5G
+    - lavori relativi RA
+    - qualche risultato
+
+3) Applications
+    - simulatore 
+    - progetti in corso
+
+
+**Title (Proposals):**
+    - Satellite Communication Systems for 5G and IoT services
+    - Non-Terrestrial Network for massive IoT communications (in questo caso aggiungi overview su altre tecnologie satellitare)
+    - Satellite Communication Systems for massive IoT communications
+
+**Abstract:**
+Machine Type Communications (MTC) and Internet of Things (IoT) applications are growing exponentially and are forecast to play an even more important role in Future Networks and Systems. The Third Generation Partnership Project (3GPP) introduced the Narrowband IoT (NB-IoT) air interface as a response to the IoT use case requirements. However, it is widely accepted that the terrestrial network alone is not able to serve the requirement of the IoT market of a truly ubiquitous coverage. To this aim, several initiatives are currently addressing the inclusion of a satellite component into the telecommunication infrastructure to extend its coverage to those areas that are unserved or underserved by the terrestrial network. The recently approved 3GPP study item on NB-IoT over Non-Terrestrial Networks (NTN) is the most important of these initiatives. 
+In the seminar will be discussed:
+    - NTN architecture and general aspects, problems, and possible solutions
+    - NB-IoT air interface overview and adaptations for NTN
+    - On going activities on NB-IoT over NTN
+
+**Speaker:**
+Matteo
