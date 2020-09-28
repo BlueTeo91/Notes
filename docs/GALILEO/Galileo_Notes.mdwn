@@ -1,5 +1,5 @@
 # Galileo Notes
-### IEEExplore Serch
+## IEEExplore Serch
 - ((("All Metadata":galileo) OR "All Metadata":g2g) AND "All Metadata":messaging) 
 - galileo second generation 
 - (("All Metadata":galileo) AND "All Metadata":short message) 
@@ -11,16 +11,19 @@
 - (("All Metadata":galileo) AND "All Metadata":sar) 
 
 
-### Ideas to write paper
+## Ideas to write paper
+### Intro + SoA
 - start talking about SMS service in Beidou 1-3 then says that could be a good service to be exploited also in Galileo beside another already 2way service which is SAR 
 - iot over satellite in introduction (cita anche 5g forse)
-- lavori su ESSA vari (anche S-MIM)
+- lavori su ESSA vari (anche S-MIM) come esempio di applicazioni per iot in G2G
+- use of global coverage of galileo to reach remote areas for sensor gathering data and cargo tracking (qui attacca iot in satellite)
+
 - spiega essa
 - spiega system model
 - spiega simulatore
-- use of global coverage of galileo to reach remote areas for sensor gathering data and cargo tracking (qui attacca iot in satellite)
+- per avere delle equazioni si potrebbero scrivere quelle di LB (almeno 1) e Poisson per il traffico
 
-### Reference (for introduction/SoA)
+## Reference (for introduction/SoA)
 - https://doi.org/10.1007/s00190-017-1005-2 for ref on beidou gnss from paper: A Novel Push-To-Talk Service over Beidou-3 Satellite Navigation System, **[4]** (no need for reading)
 - magari prova a dire che grazie al servizio sms vari 2way services  possono essere adattati (come quelli vocoder) e quindi sarebbe una possibilità in più anche per galileo (per vocoder prendi sempre reference da: A Novel Push-To-Talk Service over Beidou-3 Satellite Navigation System)
 
@@ -39,3 +42,5 @@
   * Performance Evaluation of Satellite-Based Search and Rescue Services: Galileo vs. Cospas-Sarsat
   * Overview of the Cospas-Sarsat Satellite System for Search and Rescue (solo come Cospas-Sarsat reference)
   * Concept and Performance Evaluation of a Galileo-based Emergency Short Message Service (reference come 2way SMS service basato su Galileo SAR)
+
+* usa anche una reference per iot over satellite
